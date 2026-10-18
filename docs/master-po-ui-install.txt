@@ -1,0 +1,25 @@
+MASTER PO UI - PENGGANTI TEMPLATE LENGKAP
+Build: 2026-10-15-clean-01
+
+Paket ini hanya mengganti UI, bukan backend/database.
+
+1. Cadangkan file server modul_po/templates/master_po.html terlebih dahulu.
+2. Upload file modul_po/templates/master_po.html dari ZIP ini untuk MENGGANTI
+   seluruh isi file /home/ptba8489/testing_py/modul_po/templates/master_po.html.
+   Jangan tempelkan berdampingan atau gabungkan dengan isi lama.
+3. Restart aplikasi Python dari panel hosting, lalu refresh dengan Ctrl+Shift+R.
+4. Buka View Page Source pada /master-po/ dan cari:
+   Master PO UI build: 2026-10-15-clean-01
+   Jika tidak ada, halaman belum menggunakan template ini.
+5. Periksa Console: tidak ada lagi SyntaxError deklarasi p/j ganda.
+6. Periksa daftar PO: default 5 baris, pilihan 5/10/25/50, tombol halaman,
+   Buka detail, dan Edit untuk akun yang memiliki hak tulis.
+
+File HTML hasil View Source yang sebelumnya dikirim adalah hasil render Flask,
+bukan template sumber. Jangan gunakan HTML tersebut untuk mengganti template:
+template sumber harus mempertahankan extends, url_for, dan hak akses Jinja.
+
+Jika API masih HTTP 500 setelah JavaScript berfungsi, itu masalah server yang
+terpisah. Kirim respons Network dari permintaan yang gagal, kode PO-DB (jika
+tersedia), dan traceback server terbaru. Paket UI ini tidak mengubah collation
+MySQL atau koneksi database, dan tidak membuktikan masalah database sudah selesai.
